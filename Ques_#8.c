@@ -6,11 +6,9 @@ int main() {
     char text[1000];
     int choice;
 
-    // Read input text from the user
     printf("Enter a line of text: ");
     fgets(text, sizeof(text), stdin);
     
-    // Remove the newline character if present
     text[strcspn(text, "\n")] = '\0';
 
     do {
@@ -23,18 +21,15 @@ int main() {
         printf("Enter your choice (1-5): ");
         scanf("%d", &choice);
 
-        // Clear input buffer
         while (getchar() != '\n');
 
         switch (choice) {
             case 1: {
-                // 1. Count number of characters
                 int char_count = strlen(text);
                 printf("Total number of characters: %d\n", char_count);
                 break;
             }
             case 2: {
-                // 2. Count number of words
                 int word_count = 0;
                 int in_word = 0;
                 for (int i = 0; text[i] != '\0'; i++) {
@@ -49,7 +44,6 @@ int main() {
                 break;
             }
             case 3: {
-                // 3. Searching a character
                 char target;
                 int found = 0;
                 printf("Enter a character to search: ");
@@ -58,7 +52,7 @@ int main() {
                 printf("Character '%c' found at positions: ", target);
                 for (int i = 0; text[i] != '\0'; i++) {
                     if (text[i] == target) {
-                        printf("%d ", i + 1); // 1-based index position
+                        printf("%d ", i + 1);
                         found = 1;
                     }
                 }
@@ -69,7 +63,6 @@ int main() {
                 break;
             }
             case 4: {
-                // 4. Count vowels, consonants, and spaces
                 int vowels = 0, consonants = 0, spaces = 0;
                 for (int i = 0; text[i] != '\0'; i++) {
                     char ch = tolower(text[i]);
